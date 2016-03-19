@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "YZBTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -24,7 +24,9 @@
     self.window.frame = [UIScreen mainScreen].bounds;
     
     //设置窗口的根控制器
-    self.window.rootViewController = [[ViewController alloc] init];
+    UITabBarController *tabBarCOntroller = [[YZBTabBarController alloc] init];
+
+    self.window.rootViewController = tabBarCOntroller;
     
     //显示窗口
     [self.window makeKeyAndVisible];

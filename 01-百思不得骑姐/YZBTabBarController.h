@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  YZBTabBarController.h
 //  01-百思不得骑姐
 //
 //  Created by 余铸斌 on 16/3/19.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface YZBTabBarController : UITabBarController
 
 @end
-
