@@ -42,14 +42,16 @@
     
     //设置button的frame
     //设置button大小
-    self.publishButton.frame = CGRectMake(0, 0, self.publishButton.currentBackgroundImage.size.width, self.publishButton.currentBackgroundImage.size.height);
+    self.publishButton.width = self.publishButton.currentBackgroundImage.size.width;
+    self.publishButton.height = self.publishButton.currentBackgroundImage.size.height;
+  
     //设置button的中心位置
-    self.publishButton.center = CGPointMake(self.frame.size.width*0.5, self.frame.size.height*0.5);
+    self.publishButton.center = CGPointMake(self.width*0.5, self.height*0.5);
     
     //计算位置值
     CGFloat buttonY = 0;
-    CGFloat buttonW = self.frame.size.width/5;
-    CGFloat buttonH = self.frame.size.height;
+    CGFloat buttonW = self.width/5;
+    CGFloat buttonH = self.height;
     NSInteger index = 0;
     //设置其他tabbarbutton(即其他现实的按钮)的frame
     for (UIView *button in self.subviews) {
