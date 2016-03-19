@@ -11,4 +11,11 @@
 
 #import "UIView+YZBExtension.h"
 
+//在此处进行全局的宏定义
+#ifdef DEBUG
+#define YZBLog(...) NSLog(__VA_ARGS__)
+#else
+#define YZBLog(...)
+#endif
+
 #endif /* PrefixHeader_pch */

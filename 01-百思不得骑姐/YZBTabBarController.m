@@ -43,18 +43,21 @@
     [self setupChildVc:[[YZBMeViewController alloc] init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
     
     //因为直接实例化的tabbarcontroller的tabbar属性，不能进行自定义，所以需要自定义一个tabbar并赋值
-    //更换tabbar,因为tabbar是只读的属性，所以才用kvc机制去自定义它
+    //更换tabbar,因为tabbar是readonly的属性，所以才用kvc机制去自定义它
     //self.tabBar = [[YZBTabBar alloc] init];
     [self setValue:[[YZBTabBar alloc] init] forKey:@"tabBar"];
 }
 
 /**
 *初始化子控制器
-*1、将controller的实例作为参数传入，实现可自定义控制器类型及初始化方法
+*1、因为viewcontroller就是一个tabbaritem，所以将viewcontroller的实例作为参数传入，并实现可自定义控制器类型及初始化方法
 *2、传入title，image，selectedimage名称字符串，实现自定义标题及图片
 **/
 - (void)setupChildVc:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
+    //作为导航栏时起作用，作为导航栏标题名称
+    //vc.navigationItem.title = title;
+    
     //设置文字，图片
     vc.tabBarItem.title = title;
     vc.tabBarItem.image = [UIImage imageNamed:image];
@@ -62,8 +65,12 @@
     vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
     //设置背景色
     vc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(100)/100.0 green:arc4random_uniform(100)/100.0 blue:arc4random_uniform(100)/100.0 alpha:1];
-    //添加子控制器
-    [self addChildViewController:vc];
+    
+    //根据界面需求，需要导航控制器，所以将当前界面包装到一个导航控制器中，将该view作为导航控制器的rootview，再addsubview
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    //添加子控制器,改进后，子控制器为导航控制器
+    [self addChildViewController:nav];
 }
 
 @end

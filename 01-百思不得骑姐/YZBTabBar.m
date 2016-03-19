@@ -35,16 +35,12 @@
     return self;
 }
 
-//重写layoutSubviews方法是先自定义tabbar布局
+//重写layoutSubviews方法实现自定义tabbar布局
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-    //设置button的frame
-    //设置button大小
-    self.publishButton.width = self.publishButton.currentBackgroundImage.size.width;
-    self.publishButton.height = self.publishButton.currentBackgroundImage.size.height;
-  
+    self.publishButton.size = self.publishButton.currentBackgroundImage.size;
     //设置button的中心位置
     self.publishButton.center = CGPointMake(self.width*0.5, self.height*0.5);
     

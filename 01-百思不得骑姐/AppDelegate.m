@@ -25,7 +25,6 @@
     
     //设置窗口的根控制器
     UITabBarController *tabBarCOntroller = [[YZBTabBarController alloc] init];
-
     self.window.rootViewController = tabBarCOntroller;
     
     //显示窗口

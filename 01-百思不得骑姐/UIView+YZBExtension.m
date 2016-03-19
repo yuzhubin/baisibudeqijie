@@ -11,6 +11,14 @@
 @implementation UIView (YZBExtension)
 
 //set方法
+
+- (void)setSize:(CGSize)size
+{
+    CGRect frame = self.frame;
+    frame.size = size;
+    self.frame = frame;
+}
+
 - (void)setWidth:(CGFloat)width
 {
     CGRect frame = self.frame;
@@ -41,6 +49,12 @@
 }
 
 //get方法
+
+- (CGSize)size
+{
+    return self.frame.size;
+}
+
 - (CGFloat)width
 {
     return self.frame.size.width;
