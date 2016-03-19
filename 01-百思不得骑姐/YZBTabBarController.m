@@ -11,6 +11,7 @@
 #import "YZBNewViewController.h"
 #import "YZBFriendTrendsViewController.h"
 #import "YZBMeViewController.h"
+#import "YZBTabBar.h"
 
 @implementation YZBTabBarController
 
@@ -40,6 +41,11 @@
     [self setupChildVc:[[YZBNewViewController alloc] init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
     [self setupChildVc:[[YZBFriendTrendsViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     [self setupChildVc:[[YZBMeViewController alloc] init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
+    
+    //因为直接实例化的tabbarcontroller的tabbar属性，不能进行自定义，所以需要自定义一个tabbar并赋值
+    //更换tabbar,因为tabbar是只读的属性，所以才用kvc机制去自定义它
+    //self.tabBar = [[YZBTabBar alloc] init];
+    [self setValue:[[YZBTabBar alloc] init] forKey:@"tabBar"];
 }
 
 /**

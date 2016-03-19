@@ -15,6 +15,7 @@
 		542276B01C9D363A002116A8 /* YZBNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542276AF1C9D363A002116A8 /* YZBNewViewController.m */; };
 		542276B31C9D365E002116A8 /* YZBFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542276B21C9D365E002116A8 /* YZBFriendTrendsViewController.m */; };
 		542276B61C9D3679002116A8 /* YZBMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542276B51C9D3679002116A8 /* YZBMeViewController.m */; };
+		542276B91C9D3F59002116A8 /* YZBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 542276B81C9D3F59002116A8 /* YZBTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		542276B21C9D365E002116A8 /* YZBFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZBFriendTrendsViewController.m; sourceTree = "<group>"; };
 		542276B41C9D3679002116A8 /* YZBMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZBMeViewController.h; sourceTree = "<group>"; };
 		542276B51C9D3679002116A8 /* YZBMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZBMeViewController.m; sourceTree = "<group>"; };
+		542276B71C9D3F59002116A8 /* YZBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZBTabBar.h; sourceTree = "<group>"; };
+		542276B81C9D3F59002116A8 /* YZBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZBTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 				542276B21C9D365E002116A8 /* YZBFriendTrendsViewController.m */,
 				542276B41C9D3679002116A8 /* YZBMeViewController.h */,
 				542276B51C9D3679002116A8 /* YZBMeViewController.m */,
+				542276B71C9D3F59002116A8 /* YZBTabBar.h */,
+				542276B81C9D3F59002116A8 /* YZBTabBar.m */,
 				5422769C1C9D21D0002116A8 /* YZBTabBarController.h */,
 				5422769D1C9D21D0002116A8 /* YZBTabBarController.m */,
 				542276881C9D0441002116A8 /* AppDelegate.h */,
@@ -170,6 +175,7 @@
 				542276871C9D0441002116A8 /* main.m in Sources */,
 				542276B01C9D363A002116A8 /* YZBNewViewController.m in Sources */,
 				542276AD1C9D361A002116A8 /* YZBEssenceViewController.m in Sources */,
+				542276B91C9D3F59002116A8 /* YZBTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
