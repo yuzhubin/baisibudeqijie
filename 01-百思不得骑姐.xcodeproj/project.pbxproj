@@ -11,6 +11,10 @@
 		5422768A1C9D0441002116A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 542276891C9D0441002116A8 /* AppDelegate.m */; };
 		542276921C9D0441002116A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 542276911C9D0441002116A8 /* Assets.xcassets */; };
 		5422769E1C9D21D0002116A8 /* YZBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5422769D1C9D21D0002116A8 /* YZBTabBarController.m */; };
+		542276AD1C9D361A002116A8 /* YZBEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542276AC1C9D361A002116A8 /* YZBEssenceViewController.m */; };
+		542276B01C9D363A002116A8 /* YZBNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542276AF1C9D363A002116A8 /* YZBNewViewController.m */; };
+		542276B31C9D365E002116A8 /* YZBFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542276B21C9D365E002116A8 /* YZBFriendTrendsViewController.m */; };
+		542276B61C9D3679002116A8 /* YZBMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542276B51C9D3679002116A8 /* YZBMeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,14 @@
 		542276961C9D0441002116A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5422769C1C9D21D0002116A8 /* YZBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZBTabBarController.h; sourceTree = "<group>"; };
 		5422769D1C9D21D0002116A8 /* YZBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZBTabBarController.m; sourceTree = "<group>"; };
+		542276AB1C9D361A002116A8 /* YZBEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZBEssenceViewController.h; sourceTree = "<group>"; };
+		542276AC1C9D361A002116A8 /* YZBEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZBEssenceViewController.m; sourceTree = "<group>"; };
+		542276AE1C9D363A002116A8 /* YZBNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZBNewViewController.h; sourceTree = "<group>"; };
+		542276AF1C9D363A002116A8 /* YZBNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZBNewViewController.m; sourceTree = "<group>"; };
+		542276B11C9D365E002116A8 /* YZBFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZBFriendTrendsViewController.h; sourceTree = "<group>"; };
+		542276B21C9D365E002116A8 /* YZBFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZBFriendTrendsViewController.m; sourceTree = "<group>"; };
+		542276B41C9D3679002116A8 /* YZBMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZBMeViewController.h; sourceTree = "<group>"; };
+		542276B51C9D3679002116A8 /* YZBMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZBMeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,14 @@
 		542276841C9D0441002116A8 /* 01-百思不得骑姐 */ = {
 			isa = PBXGroup;
 			children = (
+				542276AB1C9D361A002116A8 /* YZBEssenceViewController.h */,
+				542276AC1C9D361A002116A8 /* YZBEssenceViewController.m */,
+				542276AE1C9D363A002116A8 /* YZBNewViewController.h */,
+				542276AF1C9D363A002116A8 /* YZBNewViewController.m */,
+				542276B11C9D365E002116A8 /* YZBFriendTrendsViewController.h */,
+				542276B21C9D365E002116A8 /* YZBFriendTrendsViewController.m */,
+				542276B41C9D3679002116A8 /* YZBMeViewController.h */,
+				542276B51C9D3679002116A8 /* YZBMeViewController.m */,
 				5422769C1C9D21D0002116A8 /* YZBTabBarController.h */,
 				5422769D1C9D21D0002116A8 /* YZBTabBarController.m */,
 				542276881C9D0441002116A8 /* AppDelegate.h */,
@@ -143,9 +163,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				542276B31C9D365E002116A8 /* YZBFriendTrendsViewController.m in Sources */,
+				542276B61C9D3679002116A8 /* YZBMeViewController.m in Sources */,
 				5422769E1C9D21D0002116A8 /* YZBTabBarController.m in Sources */,
 				5422768A1C9D0441002116A8 /* AppDelegate.m in Sources */,
 				542276871C9D0441002116A8 /* main.m in Sources */,
+				542276B01C9D363A002116A8 /* YZBNewViewController.m in Sources */,
+				542276AD1C9D361A002116A8 /* YZBEssenceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

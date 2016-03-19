@@ -7,6 +7,10 @@
 //
 
 #import "YZBTabBarController.h"
+#import "YZBEssenceViewController.h"
+#import "YZBNewViewController.h"
+#import "YZBFriendTrendsViewController.h"
+#import "YZBMeViewController.h"
 
 @implementation YZBTabBarController
 
@@ -32,57 +36,28 @@
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
     //添加子控制器
-    UIViewController *vc1 = [[UIViewController alloc] init];
-    vc1.tabBarItem.title = @"精华";
-    //更改字体属性（原方式，分别设置）
-//    [vc1.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
-//    [vc1.tabBarItem setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
-    vc1.tabBarItem.image = [UIImage imageNamed:@"tabBar_essence_icon"];
-    UIImage *image = [UIImage imageNamed:@"tabBar_essence_click_icon"];
-    //此处要将渲染方法产生的新图片赋值给另一个指针
-    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vc1.tabBarItem.selectedImage = image;
-    vc1.view.backgroundColor = [UIColor greenColor];
-    
-    [self addChildViewController:vc1];
-    
-    UIViewController *vc2 = [[UIViewController alloc] init];
-    vc2.tabBarItem.title = @"新帖";
-//    [vc2.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
-//    [vc2.tabBarItem setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
-    vc2.tabBarItem.image = [UIImage imageNamed:@"tabBar_new_icon"];
-    UIImage *image2 = [UIImage imageNamed:@"tabBar_new_click_icon"];
-    //此处要将渲染方法产生的新图片赋值给另一个指针
-    image2 = [image2 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vc2.tabBarItem.selectedImage = image2;
-    vc2.view.backgroundColor = [UIColor blackColor];
-    
-    [self addChildViewController:vc2];
-    
-    UIViewController *vc3 = [[UIViewController alloc] init];
-    vc3.tabBarItem.title = @"关注";
-//    [vc3.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
-//    [vc3.tabBarItem setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
-    vc3.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
-    UIImage *image3 = [UIImage imageNamed:@"tabBar_friendTrends_click_icon"];
-    //此处要将渲染方法产生的新图片赋值给另一个指针
-    image3 = [image3 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vc3.tabBarItem.selectedImage = image3;
-    vc3.view.backgroundColor = [UIColor blueColor];
-    
-    [self addChildViewController:vc3];
-    
-    UIViewController *vc4 = [[UIViewController alloc] init];
-    vc4.tabBarItem.title = @"我";
-//    [vc4.tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
-//    [vc4.tabBarItem setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
-    vc4.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
-    //此处没有使用image方法渲染，而是在accest里面直接修改图片的渲染属性，达到同样效果
-    vc4.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_me_click_icon"];
-    vc4.view.backgroundColor = [UIColor grayColor];
-    
-    [self addChildViewController:vc4];
+    [self setupChildVc:[[YZBEssenceViewController alloc] init] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
+    [self setupChildVc:[[YZBNewViewController alloc] init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
+    [self setupChildVc:[[YZBFriendTrendsViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
+    [self setupChildVc:[[YZBMeViewController alloc] init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
 }
 
+/**
+*初始化子控制器
+*1、将controller的实例作为参数传入，实现可自定义控制器类型及初始化方法
+*2、传入title，image，selectedimage名称字符串，实现自定义标题及图片
+**/
+- (void)setupChildVc:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
+{
+    //设置文字，图片
+    vc.tabBarItem.title = title;
+    vc.tabBarItem.image = [UIImage imageNamed:image];
+    //此处没有使用image方法渲染，而是在accest里面直接修改图片的渲染属性，达到同样效果
+    vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    //设置背景色
+    vc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(100)/100.0 green:arc4random_uniform(100)/100.0 blue:arc4random_uniform(100)/100.0 alpha:1];
+    //添加子控制器
+    [self addChildViewController:vc];
+}
 
 @end
