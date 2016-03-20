@@ -15,17 +15,13 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="header_cry_icon" translatesAutoresizingMaskIntoConstraints="NO" id="b8i-dB-ch6">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_cry_icon" translatesAutoresizingMaskIntoConstraints="NO" id="b8i-dB-ch6">
                     <rect key="frame" x="276" y="192" width="48" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="48" id="7ES-kn-uEF"/>
-                        <constraint firstAttribute="height" constant="48" id="MR4-bY-Nff"/>
-                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeR-ig-yfe">
                     <rect key="frame" x="167" y="270" width="267" height="61"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="267" id="KSm-2d-eFo"/>
+                        <constraint firstAttribute="width" constant="267" id="gVL-SC-DGV"/>
                     </constraints>
                     <string key="text">快快登录吧，关注百思最in牛人
 好友动态让你过把瘾儿
@@ -34,12 +30,8 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okJ-6C-mX4">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okJ-6C-mX4">
                     <rect key="frame" x="179" y="380" width="243" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="243" id="Crv-A7-Uu7"/>
-                        <constraint firstAttribute="height" constant="48" id="NOK-bs-QoT"/>
-                    </constraints>
                     <state key="normal" title="立即登录注册" backgroundImage="friendsTrend_login">
                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -50,14 +42,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="b8i-dB-ch6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4WN-y3-ICs"/>
-                <constraint firstItem="DeR-ig-yfe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9OA-lF-L9W"/>
-                <constraint firstItem="okJ-6C-mX4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Dho-lL-qOn"/>
-                <constraint firstItem="DeR-ig-yfe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Kiy-My-Juy"/>
-                <constraint firstItem="DeR-ig-yfe" firstAttribute="top" secondItem="b8i-dB-ch6" secondAttribute="bottom" constant="60" id="VSr-uB-r0m"/>
-                <constraint firstItem="okJ-6C-mX4" firstAttribute="top" secondItem="DeR-ig-yfe" secondAttribute="bottom" constant="59" id="hvx-cH-3j5"/>
-                <constraint firstItem="DeR-ig-yfe" firstAttribute="top" secondItem="b8i-dB-ch6" secondAttribute="bottom" constant="40" id="q4P-sk-aY2"/>
+                <constraint firstItem="okJ-6C-mX4" firstAttribute="top" secondItem="DeR-ig-yfe" secondAttribute="bottom" constant="49" id="Cd4-ef-DCj"/>
+                <constraint firstItem="okJ-6C-mX4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="K4X-95-Zu2"/>
+                <constraint firstItem="DeR-ig-yfe" firstAttribute="centerX" secondItem="b8i-dB-ch6" secondAttribute="centerX" id="PPE-aJ-8R7"/>
+                <constraint firstItem="DeR-ig-yfe" firstAttribute="top" secondItem="b8i-dB-ch6" secondAttribute="bottom" constant="30" id="gXT-8m-nhX"/>
+                <constraint firstItem="okJ-6C-mX4" firstAttribute="centerX" secondItem="DeR-ig-yfe" secondAttribute="centerX" id="lhe-0U-HXB"/>
+                <constraint firstItem="DeR-ig-yfe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="sXZ-kr-J4n"/>
             </constraints>
+            <point key="canvasLocation" x="560" y="290"/>
         </view>
     </objects>
     <resources>
