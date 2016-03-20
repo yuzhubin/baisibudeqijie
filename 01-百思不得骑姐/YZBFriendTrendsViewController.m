@@ -7,6 +7,7 @@
 //
 
 #import "YZBFriendTrendsViewController.h"
+#import "YZBReconmendViewController.h"
 
 @implementation YZBFriendTrendsViewController
 
@@ -25,7 +26,8 @@
 
 - (void) friendsClick
 {
-    YZBLog(@"friendsClick clicked");
+    YZBReconmendViewController *vc = [[YZBReconmendViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
