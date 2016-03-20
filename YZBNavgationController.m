@@ -10,16 +10,19 @@
 
 @implementation YZBNavgationController
 
+//所有仅需要第一次初始化的属性都可以放到initialize来做，以提高性能
++ (void)initialize
+{
+    //将背景图片设置放到导航控制器自定义类来处理
+    //另一种方法，通过appearance特性来设置全局的背景图片，但是这么做，会导致所有的UINavigationBar都会被设置，所以用appearanceWhenContainedInInstancesOfClasses添加只有本控制器才会生效的约束
+    //将这个处理放到initialize来，则只会在第一次使用这个类的时候调用，不会多次调用
+    UINavigationBar *bar = [UINavigationBar appearance];
+    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //将背景图片设置放到导航控制器自定义类来处理
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
-    
-    //另一种方法，通过appearance特性来设置全局的背景图片
-    //UINavigationBar *bar = [UINavigationBar appearance];
-    //[bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
 }
 
 //通过重写pushViewController，可以拦截pushview时间并作处理

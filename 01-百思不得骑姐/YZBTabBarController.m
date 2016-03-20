@@ -16,10 +16,8 @@
 
 @implementation YZBTabBarController
 
-- (void)viewDidLoad
++ (void)initialize
 {
-    [super viewDidLoad];
-    
     //根据父类itembar的描述，这个字典的key必须在NSAttributedString.h找，对应不同的属性设置
     //1.字体大小属性
     //2.字体颜色属性
@@ -36,6 +34,11 @@
     UITabBarItem *item = [UITabBarItem appearance];
     [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
     //添加子控制器
     [self setupChildVc:[[YZBEssenceViewController alloc] init] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
