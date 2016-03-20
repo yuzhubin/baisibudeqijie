@@ -12,6 +12,7 @@
 #import "YZBFriendTrendsViewController.h"
 #import "YZBMeViewController.h"
 #import "YZBTabBar.h"
+#import "YZBNavgationController.h"
 
 @implementation YZBTabBarController
 
@@ -68,8 +69,7 @@
     //vc.view.backgroundColor = [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:1];
     
     //根据界面需求，需要导航控制器，所以将当前界面包装到一个导航控制器中，将该view作为导航控制器的rootview，再addsubview
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    YZBNavgationController *nav = [[YZBNavgationController alloc] initWithRootViewController:vc];
     
     //添加子控制器,改进后，子控制器为导航控制器
     [self addChildViewController:nav];

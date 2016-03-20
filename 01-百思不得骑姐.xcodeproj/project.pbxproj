@@ -18,6 +18,7 @@
 		542276B91C9D3F59002116A8 /* YZBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 542276B81C9D3F59002116A8 /* YZBTabBar.m */; };
 		542276BD1C9D4BD1002116A8 /* UIView+YZBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 542276BC1C9D4BD1002116A8 /* UIView+YZBExtension.m */; };
 		54F55C4A1C9E69B3001E48F8 /* UIBarButtonItem+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F55C491C9E69B3001E48F8 /* UIBarButtonItem+XMGExtension.m */; };
+		54F55C4D1C9E74FC001E48F8 /* YZBNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F55C4C1C9E74FC001E48F8 /* YZBNavgationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		542276BE1C9D4C3E002116A8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		54F55C481C9E69B3001E48F8 /* UIBarButtonItem+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+XMGExtension.h"; sourceTree = "<group>"; };
 		54F55C491C9E69B3001E48F8 /* UIBarButtonItem+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+XMGExtension.m"; sourceTree = "<group>"; };
+		54F55C4B1C9E74FC001E48F8 /* YZBNavgationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZBNavgationController.h; path = ../YZBNavgationController.h; sourceTree = "<group>"; };
+		54F55C4C1C9E74FC001E48F8 /* YZBNavgationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZBNavgationController.m; path = ../YZBNavgationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				542276B51C9D3679002116A8 /* YZBMeViewController.m */,
 				542276B71C9D3F59002116A8 /* YZBTabBar.h */,
 				542276B81C9D3F59002116A8 /* YZBTabBar.m */,
+				54F55C4B1C9E74FC001E48F8 /* YZBNavgationController.h */,
+				54F55C4C1C9E74FC001E48F8 /* YZBNavgationController.m */,
 				5422769C1C9D21D0002116A8 /* YZBTabBarController.h */,
 				5422769D1C9D21D0002116A8 /* YZBTabBarController.m */,
 				542276881C9D0441002116A8 /* AppDelegate.h */,
@@ -182,6 +187,7 @@
 			files = (
 				542276BD1C9D4BD1002116A8 /* UIView+YZBExtension.m in Sources */,
 				542276B31C9D365E002116A8 /* YZBFriendTrendsViewController.m in Sources */,
+				54F55C4D1C9E74FC001E48F8 /* YZBNavgationController.m in Sources */,
 				542276B61C9D3679002116A8 /* YZBMeViewController.m in Sources */,
 				5422769E1C9D21D0002116A8 /* YZBTabBarController.m in Sources */,
 				5422768A1C9D0441002116A8 /* AppDelegate.m in Sources */,

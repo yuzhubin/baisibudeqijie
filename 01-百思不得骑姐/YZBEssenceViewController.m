@@ -17,7 +17,9 @@
     //view已成为导航栏的子栏，现在设置导航栏内容
     //首先设置导航栏中间的图片，标题
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
+    
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(tagClick)];
+    
     self.view.backgroundColor = YZBBackGroundColor;
 }
 
