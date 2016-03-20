@@ -79,27 +79,7 @@
 		542276841C9D0441002116A8 /* 01-百思不得骑姐 */ = {
 			isa = PBXGroup;
 			children = (
-				542276AB1C9D361A002116A8 /* YZBEssenceViewController.h */,
-				542276AC1C9D361A002116A8 /* YZBEssenceViewController.m */,
-				542276AE1C9D363A002116A8 /* YZBNewViewController.h */,
-				542276AF1C9D363A002116A8 /* YZBNewViewController.m */,
-				542276B11C9D365E002116A8 /* YZBFriendTrendsViewController.h */,
-				542276B21C9D365E002116A8 /* YZBFriendTrendsViewController.m */,
-				542276B41C9D3679002116A8 /* YZBMeViewController.h */,
-				542276B51C9D3679002116A8 /* YZBMeViewController.m */,
-				542276B71C9D3F59002116A8 /* YZBTabBar.h */,
-				542276B81C9D3F59002116A8 /* YZBTabBar.m */,
-				54F55C4B1C9E74FC001E48F8 /* YZBNavgationController.h */,
-				54F55C4C1C9E74FC001E48F8 /* YZBNavgationController.m */,
-				5422769C1C9D21D0002116A8 /* YZBTabBarController.h */,
-				5422769D1C9D21D0002116A8 /* YZBTabBarController.m */,
-				542276881C9D0441002116A8 /* AppDelegate.h */,
-				542276891C9D0441002116A8 /* AppDelegate.m */,
-				54F55C481C9E69B3001E48F8 /* UIBarButtonItem+XMGExtension.h */,
-				54F55C491C9E69B3001E48F8 /* UIBarButtonItem+XMGExtension.m */,
-				542276BB1C9D4BD1002116A8 /* UIView+YZBExtension.h */,
-				542276BC1C9D4BD1002116A8 /* UIView+YZBExtension.m */,
-				542276BE1C9D4C3E002116A8 /* PrefixHeader.pch */,
+				54F55C4E1C9E8B54001E48F8 /* Classes */,
 				542276851C9D0441002116A8 /* Supporting Files */,
 			);
 			path = "01-百思不得骑姐";
@@ -110,9 +90,197 @@
 			children = (
 				542276911C9D0441002116A8 /* Assets.xcassets */,
 				542276961C9D0441002116A8 /* Info.plist */,
-				542276861C9D0441002116A8 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		54F55C4E1C9E8B54001E48F8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				54F55C4F1C9E8B91001E48F8 /* Essence */,
+				54F55C501C9E8BB6001E48F8 /* New */,
+				54F55C521C9E8BD8001E48F8 /* FriendTrends */,
+				54F55C531C9E8BF0001E48F8 /* Me */,
+				54F55C541C9E8C0C001E48F8 /* Other */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		54F55C4F1C9E8B91001E48F8 /* Essence */ = {
+			isa = PBXGroup;
+			children = (
+				54F55C5D1C9E8D3D001E48F8 /* Model */,
+				54F55C5C1C9E8D36001E48F8 /* View */,
+				54F55C5B1C9E8D23001E48F8 /* Controller */,
+			);
+			name = Essence;
+			sourceTree = "<group>";
+		};
+		54F55C501C9E8BB6001E48F8 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				54F55C601C9E8D62001E48F8 /* Model */,
+				54F55C5F1C9E8D5C001E48F8 /* View */,
+				54F55C5E1C9E8D53001E48F8 /* Controller */,
+			);
+			name = New;
+			sourceTree = "<group>";
+		};
+		54F55C521C9E8BD8001E48F8 /* FriendTrends */ = {
+			isa = PBXGroup;
+			children = (
+				54F55C631C9E8D8B001E48F8 /* Model */,
+				54F55C621C9E8D85001E48F8 /* View */,
+				54F55C611C9E8D7E001E48F8 /* Controller */,
+			);
+			name = FriendTrends;
+			sourceTree = "<group>";
+		};
+		54F55C531C9E8BF0001E48F8 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				54F55C5A1C9E8D1B001E48F8 /* Model */,
+				54F55C581C9E8CC2001E48F8 /* Controller */,
+				54F55C591C9E8CD9001E48F8 /* View */,
+			);
+			name = Me;
+			sourceTree = "<group>";
+		};
+		54F55C541C9E8C0C001E48F8 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				54F55C551C9E8C38001E48F8 /* Controller */,
+				54F55C561C9E8C48001E48F8 /* View */,
+				54F55C571C9E8C64001E48F8 /* Category */,
+				542276891C9D0441002116A8 /* AppDelegate.m */,
+				542276881C9D0441002116A8 /* AppDelegate.h */,
+				542276861C9D0441002116A8 /* main.m */,
+				542276BE1C9D4C3E002116A8 /* PrefixHeader.pch */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		54F55C551C9E8C38001E48F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				54F55C4B1C9E74FC001E48F8 /* YZBNavgationController.h */,
+				54F55C4C1C9E74FC001E48F8 /* YZBNavgationController.m */,
+				5422769C1C9D21D0002116A8 /* YZBTabBarController.h */,
+				5422769D1C9D21D0002116A8 /* YZBTabBarController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		54F55C561C9E8C48001E48F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				542276B71C9D3F59002116A8 /* YZBTabBar.h */,
+				542276B81C9D3F59002116A8 /* YZBTabBar.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		54F55C571C9E8C64001E48F8 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				54F55C481C9E69B3001E48F8 /* UIBarButtonItem+XMGExtension.h */,
+				54F55C491C9E69B3001E48F8 /* UIBarButtonItem+XMGExtension.m */,
+				542276BB1C9D4BD1002116A8 /* UIView+YZBExtension.h */,
+				542276BC1C9D4BD1002116A8 /* UIView+YZBExtension.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		54F55C581C9E8CC2001E48F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				542276B41C9D3679002116A8 /* YZBMeViewController.h */,
+				542276B51C9D3679002116A8 /* YZBMeViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		54F55C591C9E8CD9001E48F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		54F55C5A1C9E8D1B001E48F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		54F55C5B1C9E8D23001E48F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				542276AB1C9D361A002116A8 /* YZBEssenceViewController.h */,
+				542276AC1C9D361A002116A8 /* YZBEssenceViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		54F55C5C1C9E8D36001E48F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		54F55C5D1C9E8D3D001E48F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		54F55C5E1C9E8D53001E48F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				542276AE1C9D363A002116A8 /* YZBNewViewController.h */,
+				542276AF1C9D363A002116A8 /* YZBNewViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		54F55C5F1C9E8D5C001E48F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		54F55C601C9E8D62001E48F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		54F55C611C9E8D7E001E48F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				542276B11C9D365E002116A8 /* YZBFriendTrendsViewController.h */,
+				542276B21C9D365E002116A8 /* YZBFriendTrendsViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		54F55C621C9E8D85001E48F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		54F55C631C9E8D8B001E48F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
