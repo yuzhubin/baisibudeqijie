@@ -63,11 +63,13 @@
     vc.tabBarItem.image = [UIImage imageNamed:image];
     //此处没有使用image方法渲染，而是在accest里面直接修改图片的渲染属性，达到同样效果
     vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
-    //设置背景色
-    vc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(100)/100.0 green:arc4random_uniform(100)/100.0 blue:arc4random_uniform(100)/100.0 alpha:1];
+    
+    //设置背景色,如果在此处添加背景色设置，则itembar一创建就需要获取每一个childview的view.backgroundColor，这首先得创建view才能获得这个属性，这意味着所有的childview就会立即被创建，这是很浪费资源的，合理的做法应该是每点击一个item再去创建这个itemview，所以不可以在此处设置背景色
+    //vc.view.backgroundColor = [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:1];
     
     //根据界面需求，需要导航控制器，所以将当前界面包装到一个导航控制器中，将该view作为导航控制器的rootview，再addsubview
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     
     //添加子控制器,改进后，子控制器为导航控制器
     [self addChildViewController:nav];

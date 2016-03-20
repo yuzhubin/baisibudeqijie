@@ -10,6 +10,7 @@
 #define PrefixHeader_pch
 
 #import "UIView+YZBExtension.h"
+#import "UIBarButtonItem+XMGExtension.h"
 
 //在此处进行全局的宏定义
 #ifdef DEBUG
@@ -17,5 +18,9 @@
 #else
 #define YZBLog(...)
 #endif
+
+//统一设置背景色
+#define YZBRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define YZBBackGroundColor YZBRGBColor(223, 223, 223)
 
 #endif /* PrefixHeader_pch */

@@ -30,6 +30,9 @@
         
         //把生成的button赋值给全局的button指针
         self.publishButton = publishButton;
+        
+        //设置tabbar背景图
+        [self setBackgroundImage:[UIImage imageNamed:@"tabbar-light"]];
     }
     
     return self;
@@ -55,11 +58,6 @@
         if (![button isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
             continue;
         }
-        
-//        //第二种方法，已知UITabBarButton是属于UIControl的子类，而普通的button不是，通过非判断可定位。
-//        if (![button isKindOfClass:[UIControl class]] || button == self.publishButton) {
-//            continue;
-//        }
         
         //判断index是否大于1（第三个普通tabbarbutton），进行处理
         CGFloat buttonX = buttonW * ((index > 1)?(index+1):index);
