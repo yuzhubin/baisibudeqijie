@@ -12,7 +12,7 @@
 
 @interface YZBReconmendCategoryCell : UITableViewCell
 
-/** 注释 **/
+/** 分类数据 **/
 @property (nonatomic, strong) YZBReconmendCategory *category;
 
 @end

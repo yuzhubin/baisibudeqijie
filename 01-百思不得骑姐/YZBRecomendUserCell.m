@@ -7,6 +7,17 @@
 //
 
 #import "YZBRecomendUserCell.h"
+#import "YZBReconmendUser.h"
+#import <UIImageView+WebCache.h>
+
+@interface YZBRecomendUserCell()
+
+@property (strong, nonatomic) IBOutlet UIImageView *HeaderImageView;
+@property (strong, nonatomic) IBOutlet UILabel *ScreenNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *FansCountLabel;
+
+@end
+
 
 @implementation YZBRecomendUserCell
 
@@ -19,6 +30,15 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setUser:(YZBReconmendUser *)user
+{
+    _user = user;
+    
+    self.ScreenNameLabel.text = user.screen_name;
+    self.FansCountLabel.text = [NSString stringWithFormat:@"%zd人关注", user.fans_count];
+    [self.HeaderImageView sd_setImageWithURL:[NSURL URLWithString:user.header] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
 }
 
 @end

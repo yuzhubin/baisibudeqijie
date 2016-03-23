@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class YZBReconmendUser;
+
 @interface YZBRecomendUserCell : UITableViewCell
+
+/** 用户数据 **/
+@property (nonatomic, strong) YZBReconmendUser *user;
 
 @end
