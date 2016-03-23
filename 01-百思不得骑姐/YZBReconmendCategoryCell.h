@@ -1,5 +1,5 @@
 //
-//  YZBReconmendCategoryTableViewCell.h
+//  YZBReconmendCategoryCell.h
 //  百思不得骑姐
 //
 //  Created by 余铸斌 on 16/3/20.
@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class YZBReconmendCategory;
 
-@interface YZBReconmendCategoryTableViewCell : UITableViewCell
+@interface YZBReconmendCategoryCell : UITableViewCell
 
 /** 注释 **/
 @property (nonatomic, strong) YZBReconmendCategory *category;

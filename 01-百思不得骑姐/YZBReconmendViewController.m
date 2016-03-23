@@ -7,7 +7,7 @@
 //
 
 #import "YZBReconmendViewController.h"
-#import "YZBReconmendCategoryTableViewCell.h"
+#import "YZBReconmendCategoryCell.h"
 #import "YZBReconmendCategory.h"
 #import <AFNetworking.h>
 #import <SVProgressHUD.h>
@@ -21,6 +21,9 @@
 //左边的类别表格
 @property (strong, nonatomic) IBOutlet UITableView *categoryTableView;
 
+//右边的标签详情页
+@property (strong, nonatomic) IBOutlet UITableView *userTableView;
+
 @end
 
 @implementation YZBReconmendViewController
@@ -31,7 +34,7 @@ static NSString * const YZBCategoryId = @"category";
     [super viewDidLoad];
     
     //注册
-    [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([YZBReconmendCategoryTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"category"];
+    [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([YZBReconmendCategoryCell class]) bundle:nil] forCellReuseIdentifier:@"category"];
     
     self.navigationItem.title = @"推荐关注";
     
@@ -77,7 +80,7 @@ static NSString * const YZBCategoryId = @"category";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    YZBReconmendCategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:YZBCategoryId];
+    YZBReconmendCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:YZBCategoryId];
     
     cell.category = self.categories[indexPath.row];
     

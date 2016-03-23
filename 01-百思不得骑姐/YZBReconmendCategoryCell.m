@@ -1,23 +1,23 @@
 //
-//  YZBReconmendCategoryTableViewCell.m
+//  YZBReconmendCategoryCell.m
 //  百思不得骑姐
 //
 //  Created by 余铸斌 on 16/3/20.
 //  Copyright © 2016年 Yo. All rights reserved.
 //
 
-#import "YZBReconmendCategoryTableViewCell.h"
+#import "YZBReconmendCategoryCell.h"
 #import "YZBReconmendCategory.h"
 
 //此处的@interface是作为.h头文件声明的补充，并且里面的变量定义只有在本文件可见
-@interface YZBReconmendCategoryTableViewCell()
+@interface YZBReconmendCategoryCell()
 
 //选中时显示的指示器
 @property (weak, nonatomic) IBOutlet UIView *selectedIndicator;
 
 @end
 
-@implementation YZBReconmendCategoryTableViewCell
+@implementation YZBReconmendCategoryCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -33,6 +33,7 @@
     self.selectedBackgroundView = bg;
 }
 
+//当cell被选中时会调用这个方法，并传进是否被选中的标志值selected
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
