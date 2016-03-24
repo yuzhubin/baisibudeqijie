@@ -10,4 +10,14 @@
 
 @implementation YZBReconmendCategory
 
+- (NSMutableArray *)users
+{
+    //返回空数组
+    if(!_users){
+        _users = [NSMutableArray array];
+    }
+    
+    return _users;
+}
+
 @end

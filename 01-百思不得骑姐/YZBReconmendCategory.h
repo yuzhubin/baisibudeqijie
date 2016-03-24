@@ -14,9 +14,12 @@
 @property (nonatomic, assign) NSString *id;
 
 /** name **/
-@property (nonatomic, assign) NSString *name;
+@property (nonatomic, copy) NSString *name;
 
 /** count **/
 @property (nonatomic, assign) NSInteger count;
+
+/** 这个类别对应的用户数据模型数组 **/
+@property (nonatomic, strong) NSMutableArray *users;
 
 @end

@@ -23,7 +23,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWy-ze-tTn">
-                        <rect key="frame" x="78" y="34" width="42" height="21"/>
+                        <rect key="frame" x="78" y="34" width="162" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -61,6 +61,7 @@
                     <constraint firstItem="KWy-ze-tTn" firstAttribute="leading" secondItem="BdG-Pl-AQA" secondAttribute="trailing" constant="10" id="6Q4-uW-JQI"/>
                     <constraint firstItem="490-YW-L1G" firstAttribute="bottom" secondItem="BdG-Pl-AQA" secondAttribute="bottom" id="7dn-LH-2gH"/>
                     <constraint firstItem="JlO-4B-6hq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="F9w-kp-ze9"/>
+                    <constraint firstItem="hzW-fz-Vca" firstAttribute="leading" secondItem="KWy-ze-tTn" secondAttribute="trailing" constant="10" id="IRa-YX-Jew"/>
                     <constraint firstItem="KWy-ze-tTn" firstAttribute="top" secondItem="BdG-Pl-AQA" secondAttribute="top" id="JCE-E3-8gT"/>
                     <constraint firstItem="BdG-Pl-AQA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VCM-et-HS5"/>
                     <constraint firstAttribute="trailing" secondItem="JlO-4B-6hq" secondAttribute="trailing" id="YJO-bA-tXO"/>

@@ -22,9 +22,6 @@
 //左边的类别数据
 @property (nonatomic, strong) NSArray *categories;
 
-//右边的类别数据
-@property (nonatomic, strong) NSArray *users;
-
 //左边的类别表格
 @property (strong, nonatomic) IBOutlet UITableView *categoryTableView;
 
@@ -106,7 +103,9 @@ static NSString * const YZBUserId = @"user";
     if (tableView == self.categoryTableView) {
         return self.categories.count;
     }else{
-        return self.users.count;
+        //先取出左边被选中的类别模型self.categoryTableView.indexPathForSelectedRow.row，即可知道右边user数组所处的位置，继而取出数组
+        YZBReconmendCategory *cell = self.categories[self.categoryTableView.indexPathForSelectedRow.row];
+        return cell.users.count;
     }
 }
 
@@ -117,9 +116,11 @@ static NSString * const YZBUserId = @"user";
         cell.category = self.categories[indexPath.row];
         return cell;
     }else{
-        YZBRecomendUserCell *cell = [tableView dequeueReusableCellWithIdentifier:YZBUserId];
-        cell.user = self.users[indexPath.row];
-        return cell;
+        YZBRecomendUserCell *u_cell = [tableView dequeueReusableCellWithIdentifier:YZBUserId];
+        YZBReconmendCategory *c_cell = self.categories[self.categoryTableView.indexPathForSelectedRow.row];
+        u_cell.user = c_cell.users[indexPath.row];
+        
+        return u_cell;
     }
 }
 
@@ -127,23 +128,30 @@ static NSString * const YZBUserId = @"user";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     YZBReconmendCategory *cell = self.categories[indexPath.row];
-
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
-    params[@"c"] = @"subscribe";
-    params[@"category_id"] = cell.id;
     
-    //发送请求给服务器，加载右侧数据
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [self.userTableView reloadData];
-    
-        self.users = [YZBReconmendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
-        //刷新右边表格
+    //如果这个数据模型里面已经存储了数组，则不要重复加载
+    if (cell.users.count) {
+        //直接刷新数据即可，tableview的数据源协议方法会自动调用cellForRowAtIndexPath和numberOfRowsInSection方法，自动取检索出数据
         [self.userTableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
-    }];
+    }else{
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        params[@"a"] = @"list";
+        params[@"c"] = @"subscribe";
+        params[@"category_id"] = cell.id;
+        
+        //发送请求给服务器，加载右侧数据
+        [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            //防止重复加载所做的处理，将新数据存储到cell中的模型数组的数组
+            NSArray *users = [YZBReconmendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+            [cell.users addObjectsFromArray:users];
+            
+            //刷新右边表格
+            [self.userTableView reloadData];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+        }];
+    }
 }
 
 @end
