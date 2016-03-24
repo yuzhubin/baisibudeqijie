@@ -16,6 +16,7 @@
 #import <AFNetworking.h>
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
+#import <MJRefresh.h>
 
 @interface YZBReconmendViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -38,7 +39,11 @@ static NSString * const YZBUserId = @"user";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //初始化控件
     [self setupTableView];
+    
+    //添加刷新控件
+    [self setupRefresh];
     
     //显示加载指示器
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
@@ -66,6 +71,7 @@ static NSString * const YZBUserId = @"user";
     }];
 }
 
+//初始化控件
 - (void)setupTableView
 {
     //注册左边类别的cell,categoryTableView这个值为上面定义的本地变量
@@ -91,6 +97,39 @@ static NSString * const YZBUserId = @"user";
     self.categoryTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
+//添加刷新控件
+- (void)setupRefresh
+{
+    self.userTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
+}
+
+//加载更多数据
+- (void)loadMoreUsers
+{
+    //得到当前被选定的类别索引
+    YZBReconmendCategory *category = self.categories[self.categoryTableView.indexPathForSelectedRow.row];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = category.id;
+    params[@"page"] = @"2";
+    
+    //发送请求给服务器，加载右侧数据
+    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //防止重复加载所做的处理，将新数据存储到cell中的模型数组的数组
+        NSArray *users = [YZBReconmendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        [category.users addObjectsFromArray:users];
+        
+        //刷新右边表格
+        [self.userTableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+    }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -105,6 +144,10 @@ static NSString * const YZBUserId = @"user";
     }else{
         //先取出左边被选中的类别模型self.categoryTableView.indexPathForSelectedRow.row，即可知道右边user数组所处的位置，继而取出数组
         YZBReconmendCategory *cell = self.categories[self.categoryTableView.indexPathForSelectedRow.row];
+        
+        //每次刷新右边数据时，当这个详情页没有数据时，隐藏下拉的tableview
+        self.userTableView.mj_footer.hidden = (cell.users.count == 0);
+        
         return cell.users.count;
     }
 }
@@ -127,27 +170,35 @@ static NSString * const YZBUserId = @"user";
 #pragma mark - <UITableViewDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    YZBReconmendCategory *cell = self.categories[indexPath.row];
+    YZBReconmendCategory *category = self.categories[indexPath.row];
     
     //如果这个数据模型里面已经存储了数组，则不要重复加载
-    if (cell.users.count) {
+    if (category.users.count) {
         //直接刷新数据即可，tableview的数据源协议方法会自动调用cellForRowAtIndexPath和numberOfRowsInSection方法，自动取检索出数据
         [self.userTableView reloadData];
     }else{
+        //一进来就刷新数据，防止userTableView还停留在上一页的数据
+        [self.userTableView reloadData];
+        
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         params[@"a"] = @"list";
         params[@"c"] = @"subscribe";
-        params[@"category_id"] = cell.id;
+        params[@"category_id"] = category.id;
+        //params[@"page"] = 1;
         
         //发送请求给服务器，加载右侧数据
         [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             //防止重复加载所做的处理，将新数据存储到cell中的模型数组的数组
             NSArray *users = [YZBReconmendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-            [cell.users addObjectsFromArray:users];
+            [category.users addObjectsFromArray:users];
             
             //刷新右边表格
             [self.userTableView reloadData];
+            
+            //让底部空间结束刷新
+            [self.userTableView.mj_footer endRefreshing];
+            
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"%@", error);
         }];
