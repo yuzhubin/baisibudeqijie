@@ -113,21 +113,30 @@ static NSString * const YZBUserId = @"user";
     params[@"a"] = @"list";
     params[@"c"] = @"subscribe";
     params[@"category_id"] = category.id;
-    params[@"page"] = @"2";
-    
-    //发送请求给服务器，加载右侧数据
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+    //如果总页数还没加载完则继续加载
+    if (category.currentPage+1 <= category.total_page) {
+        params[@"page"] = @(++category.currentPage);
+
+        //发送请求给服务器，加载右侧数据
+        [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        //防止重复加载所做的处理，将新数据存储到cell中的模型数组的数组
-        NSArray *users = [YZBReconmendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+            //防止重复加载所做的处理，将新数据存储到cell中的模型数组的数组
+            NSArray *users = [YZBReconmendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
-        [category.users addObjectsFromArray:users];
+            [category.users addObjectsFromArray:users];
         
-        //刷新右边表格
-        [self.userTableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            //刷新右边表格
+            [self.userTableView reloadData];
+        
+            [self.userTableView.mj_footer endRefreshing];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
-    }];
+        }];
+    }else{
+        category.currentPage = 1;
+        [self.userTableView.mj_footer endRefreshingWithNoMoreData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -172,6 +181,9 @@ static NSString * const YZBUserId = @"user";
 {
     YZBReconmendCategory *category = self.categories[indexPath.row];
     
+    //当用户切换到其他页面的时候，先结束刷新操作，不去发送请求
+    [self.userTableView.mj_footer  endRefreshing];
+    
     //如果这个数据模型里面已经存储了数组，则不要重复加载
     if (category.users.count) {
         //直接刷新数据即可，tableview的数据源协议方法会自动调用cellForRowAtIndexPath和numberOfRowsInSection方法，自动取检索出数据
@@ -180,12 +192,14 @@ static NSString * const YZBUserId = @"user";
         //一进来就刷新数据，防止userTableView还停留在上一页的数据
         [self.userTableView reloadData];
         
+        //一进来就初始化当前页码为1
+        category.currentPage = 1;
+        
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         params[@"a"] = @"list";
         params[@"c"] = @"subscribe";
         params[@"category_id"] = category.id;
-        //params[@"page"] = 1;
-        
+    
         //发送请求给服务器，加载右侧数据
         [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
@@ -193,12 +207,16 @@ static NSString * const YZBUserId = @"user";
             NSArray *users = [YZBReconmendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
             [category.users addObjectsFromArray:users];
             
+            //获取右侧详情标签的总数
+            category.total_page = [responseObject[@"total_page"] integerValue];
+            
             //刷新右边表格
             [self.userTableView reloadData];
             
-            //让底部空间结束刷新
-            [self.userTableView.mj_footer endRefreshing];
-            
+            //如果已经全部加载完毕,则一点击显示就提示没有更多数据，不用在去触发刷新再计算
+            if (category.total_page == category.currentPage) {
+                [self.userTableView.mj_footer endRefreshingWithNoMoreData];
+            }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"%@", error);
         }];

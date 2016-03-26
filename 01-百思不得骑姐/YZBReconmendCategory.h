@@ -22,4 +22,10 @@
 /** 这个类别对应的用户数据模型数组 **/
 @property (nonatomic, strong) NSMutableArray *users;
 
+/** 总页数 **/
+@property (nonatomic, assign) NSInteger total_page;
+
+/** 当前页码 **/
+@property (nonatomic, assign) NSInteger currentPage;
+
 @end
