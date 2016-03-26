@@ -32,7 +32,7 @@
 //请求数据
 @property (strong, nonatomic) NSMutableDictionary *params;
 
-//网络请求控制器
+//网络请求控制器，在开头定义好方便统一控制
 @property (strong, nonatomic) AFHTTPSessionManager *manager;
 
 @end
@@ -64,6 +64,7 @@ static NSString * const YZBUserId = @"user";
     [self loadCategories];
 }
 
+//加载左侧类别
 - (void)loadCategories
 {
     //显示加载指示器
@@ -87,6 +88,8 @@ static NSString * const YZBUserId = @"user";
         //设置默认选中第一行
         [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
         
+        //让用户表格进入刷新状态即可
+        [self.userTableView.mj_header beginRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [SVProgressHUD showErrorWithStatus:@"加载推荐信息失败"];
     }];
@@ -119,10 +122,14 @@ static NSString * const YZBUserId = @"user";
 //添加刷新控件
 - (void)setupRefresh
 {
+    //顶部下拉刷新控件
     self.userTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewUsers)];
+    
+    //底部上拉加载控件
     self.userTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
 }
 
+#pragma mark - 加载用户数据
 //下拉加载新数据
 - (void)loadNewUsers
 {
@@ -136,11 +143,6 @@ static NSString * const YZBUserId = @"user";
     
     //发送请求给服务器，加载右侧数据
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        // 如果是上一次请求的结果，则直接忽略，保证只处理当请求
-        if (self.params != params) {
-            return;
-        }
-        
         //清空当前所有用户数据，防止重复加载
         [category.users removeAllObjects];
         
@@ -157,6 +159,12 @@ static NSString * const YZBUserId = @"user";
         //获取右侧详情标签的总数
         category.total_page = [responseObject[@"total_page"] integerValue];
         category.total = [responseObject[@"total"] integerValue];
+        
+        // 如果是上一次请求的结果，则直接忽略，保证只处理当请求
+        //允许把数据加到model中，但是不允许刷新当前表格
+        if (self.params != params) {
+            return;
+        }
         
         //刷新右边表格
         [self.userTableView reloadData];
@@ -196,15 +204,15 @@ static NSString * const YZBUserId = @"user";
         
         //发送请求给服务器，加载右侧数据
         [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            // 如果是上一次请求的结果，则直接忽略，保证只处理当请求
-            if (self.params != params) {
-                return;
-            }
-            
             //防止重复加载所做的处理，将新数据存储到cell中的模型数组的数组
             NSArray *users = [YZBReconmendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
             [category.users addObjectsFromArray:users];
+            
+            // 如果是上一次请求的结果，则直接忽略，保证只处理当请求
+            if (self.params != params) {
+                return;
+            }
         
             //刷新右边表格
             [self.userTableView reloadData];
