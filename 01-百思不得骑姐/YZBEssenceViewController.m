@@ -7,6 +7,7 @@
 //
 
 #import "YZBEssenceViewController.h"
+#import "YZBReconmendTagsViewController.h"
 
 @implementation YZBEssenceViewController
 
@@ -25,7 +26,8 @@
 
 - (void) tagClick
 {
-    YZBLog(@"tagbutton clicked");
+    YZBReconmendTagsViewController *vc = [[YZBReconmendTagsViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
