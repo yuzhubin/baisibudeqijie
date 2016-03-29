@@ -8,6 +8,11 @@
 
 #import "YZBFriendTrendsViewController.h"
 #import "YZBReconmendViewController.h"
+#import "YZBLoginRegisterViewController.h"
+
+@interface YZBFriendTrendsViewController ()
+
+@end
 
 @implementation YZBFriendTrendsViewController
 
@@ -28,6 +33,11 @@
 {
     YZBReconmendViewController *vc = [[YZBReconmendViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)loginRegBtn {
+    YZBLoginRegisterViewController *vc = [[YZBLoginRegisterViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

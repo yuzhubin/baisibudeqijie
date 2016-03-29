@@ -1,0 +1,13 @@
+//
+//  YZBLoginTextField.h
+//  百思不得骑姐
+//
+//  Created by 余铸斌 on 16/3/27.
+//  Copyright © 2016年 Yo. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface YZBLoginTextField : UITextField
+
+@end
