@@ -13,26 +13,6 @@ static NSString * const YZBPlaceHoaderColorPath = @"_placeholderLabel.textColor"
 
 @implementation YZBLoginTextField
 
-/**
- *运行时(runtime)操作
- 1、访问一些隐藏底层操作
- **/
-////查找所有成员变量看看有没有可以操纵的成员变量
-//+ (void)initialize
-//{
-//    unsigned int count = 0;
-//    
-//    //此处用的是copy语法，后面需要自行释放
-//    Ivar *ivars = class_copyIvarList([UITextField class], &count);
-//    
-//    for (int i = 0; i < count; i++) {
-//        NSLog(@"%s", ivar_getName(ivars[i]));
-//    }
-//    
-//    //释放
-//    free(ivars);
-//}
-
 //取出成员变量_placeholderLabel进行操纵
 - (void)awakeFromNib
 {
@@ -40,6 +20,7 @@ static NSString * const YZBPlaceHoaderColorPath = @"_placeholderLabel.textColor"
 //    UILabel *label = [self valueForKey:@"_placeholderLabel"];
 //    label.textColor = [UIColor blackColor];
     self.tintColor = [UIColor redColor];
+    self.textColor = self.tintColor;
     
     //不成为第一响应者
     [self resignFirstResponder];
@@ -48,6 +29,7 @@ static NSString * const YZBPlaceHoaderColorPath = @"_placeholderLabel.textColor"
 //成为第一响应者
 - (BOOL)becomeFirstResponder
 {
+    //使用kvc对指定位置赋值
     [self setValue:[UIColor redColor] forKeyPath:YZBPlaceHoaderColorPath];
     return  [super becomeFirstResponder];
 }
@@ -58,6 +40,26 @@ static NSString * const YZBPlaceHoaderColorPath = @"_placeholderLabel.textColor"
     [self setValue:[UIColor grayColor] forKeyPath:YZBPlaceHoaderColorPath];
     return [super resignFirstResponder];
 }
+
+/**
+ *运行时(runtime)操作
+ 1、访问一些隐藏底层操作
+ **/
+////查找所有成员变量看看有没有可以操纵的成员变量
+//+ (void)initialize
+//{
+//    unsigned int count = 0;
+//
+//    //此处用的是copy语法，后面需要自行释放
+//    Ivar *ivars = class_copyIvarList([UITextField class], &count);
+//
+//    for (int i = 0; i < count; i++) {
+//        NSLog(@"%s", ivar_getName(ivars[i]));
+//    }
+//
+//    //释放
+//    free(ivars);
+//}
 
 /*
 // Only override drawRect: if you perform custom drawing.

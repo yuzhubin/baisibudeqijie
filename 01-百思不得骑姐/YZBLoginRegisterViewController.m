@@ -14,6 +14,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (strong, nonatomic) IBOutlet UITextField *secretCode;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *liftMargin;
+
 @end
 
 @implementation YZBLoginRegisterViewController
@@ -55,14 +57,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (IBAction)showLoginRegister: (UIButton *)button {
+    NSLog(@"register click");
+}
+
 //让状态栏显示亮色，以免被深色背景图覆盖
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
 }
 
+- (IBAction)backButton {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+//通过控制左边约束来实现向左滑出主屏幕
 - (IBAction)loginClick:(id)sender {
     NSLog(@"login");
+    self.liftMargin.constant = - self.view.width;
+    
+    //马上更新布局
+    [UIView animateWithDuration:0.25 animations:^{[self.view layoutIfNeeded];}];
 }
 
 /*
