@@ -21,7 +21,7 @@
                     <rect key="frame" x="0.0" y="15" width="600" height="577"/>
                     <color key="backgroundColor" red="0.97647064920000004" green="0.16862745579999999" blue="0.11372549830000001" alpha="1" colorSpace="deviceRGB"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzJ-Lf-oEr" userLabel="返回">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzJ-Lf-oEr" userLabel="返回">
                     <rect key="frame" x="15" y="15" width="30" height="30"/>
                     <state key="normal" backgroundImage="navigationButtonReturn"/>
                     <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
@@ -31,7 +31,7 @@
                         <action selector="backButton" destination="-1" eventType="touchUpInside" id="mks-ex-fbu"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTi-tK-hhz">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTi-tK-hhz">
                     <rect key="frame" x="518" y="15" width="67" height="30"/>
                     <state key="normal" title="注册账号">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
