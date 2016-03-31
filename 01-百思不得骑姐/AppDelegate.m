@@ -30,25 +30,7 @@
     //显示窗口
     [self.window makeKeyAndVisible];
     
-    NSString *key = @"CFBundleShortVersionString";
-    
-    //当前软件版本号
-    NSString *version = [NSBundle mainBundle].infoDictionary[key];
-    
-    //沙盒中存储的软件版本号
-    NSString *sandBox = [[NSUserDefaults standardUserDefaults] stringForKey:key];
-    
-    //判断是否新版本,如果是第一次才显示这个推送页面
-    if (![version isEqualToString:sandBox]) {
-        //添加首页消息推送view
-        YZBPushGuideView *view = [YZBPushGuideView guideView];
-        view.frame = self.window.bounds;
-        
-        [[NSUserDefaults standardUserDefaults] setObject:version forKey:key];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        [self.window addSubview:view];
-    }
+    [YZBPushGuideView show];
     
     return YES;
 }
