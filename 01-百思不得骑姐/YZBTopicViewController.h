@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    YZBTopicTypeAll = 1,
+    YZBTopicTypeVideo = 41,
+    YZBTopicTypeVoice = 31,
+    YZBTopicTypeImage = 10,
+    YZBTopicTypeWord = 29,
+}YZBTopicType;
+
 @interface YZBTopicViewController : UITableViewController
 
-- (NSString *)type;
+@property (nonatomic, assign) YZBTopicType type;
 
 @end

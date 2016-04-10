@@ -8,11 +8,7 @@
 
 #import "YZBEssenceViewController.h"
 #import "YZBReconmendTagsViewController.h"
-#import "YZBAllViewController.h"
-#import "YZBVideoViewController.h"
-#import "YZBVoiceViewController.h"
-#import "YZBImageViewController.h"
-#import "YZBWordViewController.h"
+#import "YZBTopicViewController.h"
 
 @interface YZBEssenceViewController () <UIScrollViewDelegate>
 
@@ -162,11 +158,20 @@
 
 - (void)setupChildVces
 {
-    YZBAllViewController *allView = [[YZBAllViewController alloc] init];
-    YZBVideoViewController *videoView = [[YZBVideoViewController alloc] init];
-    YZBVoiceViewController *voiceView = [[YZBVoiceViewController alloc] init];
-    YZBImageViewController *imageView = [[YZBImageViewController alloc] init];
-    YZBWordViewController *wordView = [[YZBWordViewController alloc] init];
+    YZBTopicViewController *allView = [[YZBTopicViewController alloc] init];
+    allView.type = YZBTopicTypeAll;
+    
+    YZBTopicViewController *videoView = [[YZBTopicViewController alloc] init];
+    videoView.type = YZBTopicTypeVideo;
+    
+    YZBTopicViewController *voiceView = [[YZBTopicViewController alloc] init];
+    voiceView.type = YZBTopicTypeVoice;
+    
+    YZBTopicViewController *imageView = [[YZBTopicViewController alloc] init];
+    imageView.type = YZBTopicTypeImage;
+    
+    YZBTopicViewController *wordView = [[YZBTopicViewController alloc] init];
+    wordView.type = YZBTopicTypeWord;
     
     //添加到addChildViewController中先保存起来，此时还不会显示出来
     [self addChildViewController:allView];

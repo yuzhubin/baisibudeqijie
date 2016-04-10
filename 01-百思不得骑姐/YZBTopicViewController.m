@@ -34,11 +34,6 @@
 
 @implementation YZBTopicViewController
 
--(NSString *)type
-{
-    return nil;
-}
-
 - (NSMutableArray *)topics
 {
     if (!_topics) {
@@ -100,7 +95,7 @@ static NSString * const YZBTopicCellId = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = self.type;
+    params[@"type"] = @(self.type);
     self.params = params;
     
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
@@ -139,7 +134,7 @@ static NSString * const YZBTopicCellId = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = self.type;
+    params[@"type"] = @(self.type);
     params[@"page"] = @(self.currentPage);
     params[@"maxtime"] = self.maxtime;
     self.params = params;
