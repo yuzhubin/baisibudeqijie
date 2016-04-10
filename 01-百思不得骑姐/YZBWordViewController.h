@@ -6,8 +6,8 @@
 //  Copyright © 2016年 Yo. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YZBTopicViewController.h"
 
-@interface YZBWordViewController : UITableViewController
+@interface YZBWordViewController : YZBTopicViewController
 
 @end

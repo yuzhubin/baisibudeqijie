@@ -20,6 +20,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vNW-Hm-CKc" userLabel="头像">
                         <rect key="frame" x="10" y="8" width="35" height="33"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="33" id="KSa-Bi-PGt"/>
                             <constraint firstAttribute="width" constant="35" id="yYi-1I-lYm"/>
                         </constraints>
                     </imageView>
