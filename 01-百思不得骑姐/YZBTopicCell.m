@@ -22,6 +22,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *jiavImageView;
 
+@property (strong, nonatomic) IBOutlet UILabel *myTextLabel;
+
 @end
 
 @implementation YZBTopicCell
@@ -56,6 +58,9 @@
     [self setupButtonTitle:self.caiButton count:topic.cai placeholder:@"踩"];
     [self setupButtonTitle:self.shareButton count:topic.repost placeholder:@"转发"];
     [self setupButtonTitle:self.commentButton count:topic.comment placeholder:@"评论"];
+    
+    //设置帖子文字内容
+    self.myTextLabel.text = topic.text;
 }
 
 - (void)setupButtonTitle:(UIButton *)button count:(NSInteger)count placeholder:(NSString *)placeholder
@@ -75,12 +80,10 @@
 
 - (void)setFrame:(CGRect)frame
 {
-    static CGFloat margin = 10;
-    
-    frame.origin.x = margin;
-    frame.size.width -= 2*margin;
-    frame.size.height -= margin;
-    frame.origin.y += margin;
+    frame.origin.x = YZBTopicCellMargin;
+    frame.size.width -= 2*YZBTopicCellMargin;
+    frame.size.height -= YZBTopicCellMargin;
+    frame.origin.y += YZBTopicCellMargin;
     
     [super setFrame:frame];
 }

@@ -10,3 +10,6 @@
 
 UIKIT_EXTERN CGFloat const YZBTitlesViewH;
 UIKIT_EXTERN CGFloat const YZBTitlesViewY;
+UIKIT_EXTERN CGFloat const YZBTopicCellMargin;
+UIKIT_EXTERN CGFloat const YZBTopicCellTextY;
+UIKIT_EXTERN CGFloat const YZBTopicCellButtomBarH;

@@ -8,5 +8,21 @@
 
 #import "YZBConst.h"
 
+//顶部标题高度
 CGFloat const YZBTitlesViewH = 35;
+
+//顶部标题y
 CGFloat const YZBTitlesViewY = 64;
+
+//精华 cell 间距
+CGFloat const YZBTopicCellMargin = 10;
+
+//文字y值
+CGFloat const YZBTopicCellTextY = 55;
+
+//精华 cell 底部条高度
+CGFloat const YZBTopicCellButtomBarH = 44;
+
+
+
+
