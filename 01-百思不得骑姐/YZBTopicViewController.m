@@ -188,16 +188,8 @@ static NSString * const YZBTopicCellId = @"topic";
 {
     //取出帖子模型
     YZBTopic *topic = self.topics[indexPath.row];
-        
-    //根据文字内容计算高度
-    CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width-YZBTopicCellMargin*4, MAXFLOAT);
-    CGFloat textH = [topic.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
     
-    //CELL高度
-    CGFloat cellH = textH + YZBTopicCellTextY + YZBTopicCellButtomBarH + 2*YZBTopicCellMargin;
-    
-    return  cellH;
+    return  topic.cellHeight;
 }
-
 
 @end

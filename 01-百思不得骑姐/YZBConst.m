@@ -23,6 +23,12 @@ CGFloat const YZBTopicCellTextY = 55;
 //精华 cell 底部条高度
 CGFloat const YZBTopicCellButtomBarH = 44;
 
+//图片帖子的最大允许高度
+CGFloat const YZBTopicCellPictureMaxH = 1500;
+
+//长图片的缩略高度
+CGFloat const YZBTopicCellPictureMiniH = 400;
+
 
 
 

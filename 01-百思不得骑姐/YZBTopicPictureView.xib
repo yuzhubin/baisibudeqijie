@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="YZBTopicPictureView">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8WN-yd-CSa" userLabel="图片">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="ZGe-LI-cUn" userLabel="gif标志">
+                    <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="vDx-nx-tgG"/>
+                        <constraint firstAttribute="height" constant="31" id="yXb-df-Ptx"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzK-Ho-Wz8">
+                    <rect key="frame" x="0.0" y="357" width="400" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="ihl-21-q1w"/>
+                    </constraints>
+                    <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="点击查看全图" image="see-big-picture" backgroundImage="see-big-picture-background"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="8WN-yd-CSa" secondAttribute="bottom" id="LfW-eT-ODl"/>
+                <constraint firstAttribute="bottom" secondItem="MzK-Ho-Wz8" secondAttribute="bottom" id="NTE-37-caz"/>
+                <constraint firstItem="8WN-yd-CSa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Otm-jV-z8N"/>
+                <constraint firstItem="ZGe-LI-cUn" firstAttribute="leading" secondItem="8WN-yd-CSa" secondAttribute="leading" id="P8q-Lh-CxW"/>
+                <constraint firstItem="MzK-Ho-Wz8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VA8-Xu-NPo"/>
+                <constraint firstItem="ZGe-LI-cUn" firstAttribute="top" secondItem="8WN-yd-CSa" secondAttribute="top" id="lKB-gf-B5j"/>
+                <constraint firstAttribute="trailing" secondItem="MzK-Ho-Wz8" secondAttribute="trailing" id="lbx-ge-uvS"/>
+                <constraint firstItem="8WN-yd-CSa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oS5-81-67s"/>
+                <constraint firstAttribute="trailing" secondItem="8WN-yd-CSa" secondAttribute="trailing" id="vE4-ch-Asf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="gifView" destination="ZGe-LI-cUn" id="Y8z-45-RkW"/>
+                <outlet property="imageView" destination="8WN-yd-CSa" id="Oyp-AN-vGn"/>
+                <outlet property="seeBigBtn" destination="MzK-Ho-Wz8" id="97E-yZ-X4F"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="common-gif" width="31" height="31"/>
+        <image name="see-big-picture" width="19" height="19"/>
+        <image name="see-big-picture-background" width="285" height="43"/>
+    </resources>
+</document>

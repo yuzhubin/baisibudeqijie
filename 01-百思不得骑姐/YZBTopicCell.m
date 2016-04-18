@@ -8,6 +8,7 @@
 
 #import "YZBTopicCell.h"
 #import <UIImageView+WebCache.h>
+#import "YZBTopicPictureView.h"
 
 @interface YZBTopicCell()
 
@@ -24,9 +25,25 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *myTextLabel;
 
+//图片帖子
+@property (weak, nonatomic) YZBTopicPictureView *pictureView;
+
 @end
 
 @implementation YZBTopicCell
+
+//懒加载pictureview
+-(YZBTopicPictureView *)pictureView
+{
+    if (!_pictureView) {
+        YZBTopicPictureView *pictureView = [YZBTopicPictureView pictureView];
+        [self.contentView addSubview:pictureView];
+        _pictureView = pictureView;
+    }
+    
+    return _pictureView;
+}
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -61,6 +78,13 @@
     
     //设置帖子文字内容
     self.myTextLabel.text = topic.text;
+    
+    //根据模型类型(帖子类型)添加对应的内容到cell
+    if (topic.type == YZBTopicTypeImage) {
+        self.pictureView.topic = topic;
+        self.pictureView.frame = topic.pictureFrame;
+    }
+    
 }
 
 - (void)setupButtonTitle:(UIButton *)button count:(NSInteger)count placeholder:(NSString *)placeholder
